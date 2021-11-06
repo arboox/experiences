@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Moai - Experiences - ARBOOX</title>
+      <meta property="og:title" content="Moai - Experiences - ARBOOX" />
+<meta property="og:url" content="https://arboox.com/experiences/moai" />
+<meta property="og:image" content="https://cdn.glitch.com/a9c4e687-7c99-4065-88c1-02e69edfd394%2Fmoai-og-image.png?v=1629992765134" />
+    <link
+      rel="shortcut icon"
+      href="https://cdn.glitch.com/2d6e568a-47b8-4f2a-901b-67b9aad6a35d%2Fapp_icon_pwa.png?v=1617986632632"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <style>
+    html {
+      height: 100%;
+      --plyr-audio-controls-background: transparent;
+    }
+
+    body {
+      margin: 0px;
+      background-color: #FFFFFFF;
+      width: 100%;
+      height: 100%;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      background-color: #F0F0F0;
+      --poster-color: transparent;
+    }
+
+    .copyright {
+      font-family: "Neurial Grotesk", system-ui;
+      position: relative;
+      text-align: center;
+      font-weight: 600;
+      color: #ABABAB;
+    }
+
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      .topbar {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: #FFFFFF95;
+      }
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .signup-launchlink {
+      width: 254px;
+      height: 42px;
+      border-radius: 22px;
+      border: none;
+      background-color: #222222;
+      position: relative;
+      font-family: "Neurial Grotesk", system-ui;
+      color: #FFFFFF;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      cursor: pointer;
+      transition: linear 200ms;
+      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
+      z-index: 8;
+    }
+
+    .signup-launchlink:hover {
+      transform: scale(1.04);
+      filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.25));
+      box-shadow: inset 0 0 80px #0094FF, inset 20px 0 80px #FFFFFF,
+        inset -20px 0 80px #F0F0F0, inset 20px 0 300px #0094FF,
+        inset -20px 0 300px #F0F0F0, 0 0 50px #FFFFFF, -10px 0 80px #FFFFFF,
+        10px 0 20px #22222210;
+    }
+
+    .bottom-sheet {
+      width: 100%;
+      height: 70px;
+      border-radius: 18px 18px 0px 0px;
+      background-color: #FFFFFF10;
+      -webkit-backdrop-filter: blur(30px);
+      backdrop-filter: blur(30px);
+      position: fixed;
+      position: -webkit-fixed;
+      bottom: 0;
+      z-index: 100;
+    }
+
+    .look-up {
+      width: 86%;
+      height: 80px;
+      border-radius: 16px;
+      background-color: #FFFFFF10;
+      -webkit-backdrop-filter: blur(30px);
+      backdrop-filter: blur(30px);
+      position: relative;
+      top: 18px;
+      margin: 0;
+      right: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto;
+      animation-name: opacityOnAndOff;
+      animation-duration: 1.6s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-delay: 4s;
+      opacity: 0;
+      display: none;
+      transition: cubic-bezier(0.7, -0.4, 0.4, 1.4) 60ms;
+    }
+
+    @keyframes opacityOnAndOff {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      99.99% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+    
+    .translucent-sheet {
+      width: 100%;
+      height: 96vh;
+      background-color: #FFFFFF10;
+      -webkit-backdrop-filter: blur(30px);
+      backdrop-filter: blur(30px);
+      position: fixed;
+      position: -webkit-fixed;
+      bottom: 0;
+      z-index: 100;
+      border-radius: 16px 16px 0px 0px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      display: none;
+    }
+    
+    .favourite::before {
+      color: #FFFFFF;
+      content: "favorite_border"
+    }
+    
+    .favourite:hover::before {
+      content: "favorite";
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        color: #F8F8F8;
+        background-color: #090C10;
+      }
+
+      model-viewer {
+        background-color: #090C10;
+      }
+
+      @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        .topbar {
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+          background-color: #090C1095;
+        }
+      }
+
+      a {
+        color: #ADBAC7;
+      }
+
+      .signup-launchlink {
+        background-color: #0094FF;
+      }
+
+      .signup-launchlink:hover {
+        transform: scale(1.04);
+        box-shadow: none;
+      }
+
+      .bottom-sheet {
+        -webkit-backdrop-filter: blur(30px);
+        backdrop-filter: blur(30px);
+        background-color: #090C1010;
+      }
+
+      .look-up {
+        -webkit-backdrop-filter: blur(30px);
+        backdrop-filter: blur(30px);
+        background-color: #090C1010;
+      }
+    }
+  </style>
+  <body>
+    <model-viewer
+      src="https://raw.githubusercontent.com/arboox/cdn/main/glb/moai.glb"
+      ios-src="https://raw.githubusercontent.com/arboox/cdn/main/usdz/moai.usdz"
+      ar
+      ar-modes="webxr quick-look scene-viewer"
+      auto-rotate
+      camera-controls
+    >
+      <button
+        slot="ar-button"
+        style="background-color: #0094FF; width: 120px; height: 36px; border-radius: 28px; border: none; position: absolute; top: 78vh; right: 16px; font-family: 'Neurial Grotesk', system-ui; text-transform: uppercase; color: #FFFFFF; font-weight: 500; margin: 0;
+      right: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto;"
+        onclick="Show()"
+      >
+        Activate AR
+      </button>
+      <div class="look-up" id="look-up">
+        <i
+          class="bi bi-arrow-up"
+          style="color: #FFFFFF; font-size: 28px; float: left; position: relative; top: 22px; left: 16px; font-weight: 500;"
+        ></i>
+        <div style="position: relative; left: 30px; width: 300px; top: 4px;">
+          <p
+            style="font-family: 'Neurial Grotesk', system-ui; color: #FFFFFF; text-align: left; float: left; font-size: 14px;"
+          >
+            Experience in progress
+          </p>
+          <br />
+          <h3
+            style="font-family: 'Neurial Grotesk', system-ui; color: #FFFFFF; position: relative; text-align: left; float: left; left: 28px; top: -32px;"
+          >
+            Find a clear space
+          </h3>
+        </div>
+      </div>
+      <div class="bottom-sheet">
+        <div
+          style="width: 34px; height: 34px; float: left; margin-left: 18px; margin-top: 16px; border-radius: 60px;"
+        >
+          <div
+            style="float: left; display: inline-block; position: relative; top: 0px; left: 0px; width: 300px;"
+          >
+            <div
+              style=" width: 28px; height: 28px; display: inline-block; float: left; border: solid 2.6px #FFFFFF; border-radius: 8px; background: url('https://cdn.glitch.com/99f47cc5-a3af-41bd-9426-43d887207b59%2FInstagram%20post%20-%2031.png?v=1629992364315'); background-size: 100%; background-position: center; background-repeat: no-repeat; position: relative; top: 2px;  filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.2)); cursor: pointer;" id="exp-cover"
+            ></div>
+            &ensp;
+            <div
+              style="width: 120px; position: relative; float: left; left: 12px; top: -20px;"
+            >
+              <h3
+                style="font-family: 'Neurial Grotesk', system-ui; color: #FFFFFF; text-align: left; font-weight: 500;"
+              >
+                Moai
+              </h3>
+              <br />
+              <p
+                style="font-family: 'Neurial Grotesk', system-ui; color: #FFFFFF; text-align: left; position: relative; top: -52px; font-size: 15px;"
+              >
+                @arboox
+              </p>
+            </div>
+          </div>
+        </div>
+        &ensp;
+        <div
+          style="width: 2px !important; height: 34px; background-color: #FFFFFF50; position: relative; top: 0px; margin: 0;
+      right: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto; border-radius: 10px;"
+        ></div>
+        &ensp;
+        <i
+          class="bi bi-three-dots-vertical"
+          style="position: relative; top: -30px; cursor: pointer; color: #FFFFFF; font-size: 22px; float: right; margin-right: 18px;"
+           id="share"
+        ></i>
+        <button
+          style="border: none; border-radius: 40px; background-color: transparent; float: right; position: relative; top: -34px; margin-right: 18px; outline: none;"
+          id="plyr"
+        >
+          <i
+            class="bi bi-soundwave"
+            style="position: relative; top: 2px; cursor: pointer; color: #FFFFFF; font-size: 26px; right: -10px;"
+          ></i>
+        </button>
+        <p
+          style="font-family: 'Basier Circle', system-ui; color: #FFFFFF; font-weight: 500; text-transform: uppercase; font-size: 14px !important; position: relative; top: 10px; left: 200px; display: inline-block;"
+        ></p>
+        &ensp;
+      </div>
+      <div class="translucent-sheet animate-reveal" id="exp-sheet">
+        <span class="material-icons-round" style="position: relative; top: 10px; float: right; right: 10px; color: #FFFFFF; cursor: pointer; font-size: 30px;" id="exp-sheet-close">expand_more</span>
+        <br>
+        <br>
+        <center>
+        <div style="width: 180px; display: inline-block;">
+          <img src="https://cdn.glitch.com/a9c4e687-7c99-4065-88c1-02e69edfd394%2Fapp-icon.svg?v=1625246866247" style="width: 20px; border-radius: 5px; display: inline-block;">
+          &ensp;
+        <h3 style="font-family: 'Neurial Grotesk', system-ui; color: #FFFFFF; text-align: center; font-weight: 400; displaY: inline-block; position: relative; top: -4px; margin-left: -6px;">
+          Experiences   
+        </h3>
+        </div>
+          <br>
+          <div style="width: 260px; height: 332px; background: url('https://cdn.glitch.com/99f47cc5-a3af-41bd-9426-43d887207b59%2FInstagram%20post%20-%2031.png?v=1629992364315'); background-size: auto 100%; background-repeat: no-repeat; background-position: center; border-radius: 12px; margin-top: 16px; filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.08));">
+            
+          </div>
+          <br>
+          <h2 style="font-family: 'Neurial Grotesk', system-ui; color: #FFFFFF; font-weight: 500;">
+            Moai
+          </h2>
+          <br>
+          <p style="font-family: 'Neurial Grotesk', system-ui; color: #FFFFFF; font-size: 18px; margin-top: -26px;">
+            @arboox
+          </p>
+          <br>
+          <br>
+          <span class="material-icons-round favourite" style="font-size: 30px; cursor: pointer;"></span>
+          <br>
+          <br>
+          <br>
+          <br>
+          <p style="font-family: 'Basier Circle', system-ui; color: #FFFFFF;">
+            <i class="bi bi-soundwave"></i>&ensp; Continental Breakfast • Rune Dale
+          </p>
+          <br>
+          <br>
+        </center>
+      </div>
+    </model-viewer>
+    <audio
+      src="https://cdn.glitch.com/a9c4e687-7c99-4065-88c1-02e69edfd394%2FES_Continental%20Breakfast%20-%20Rune%20Dale.wav?v=1629992938578"
+      id="sound"
+      hidden
+    ></audio>
+  </body>
+  <script>
+    document.getElementById("plyr").addEventListener("click", function() {
+      var audio = document.getElementById("sound");
+      if (this.className == "is-playing") {
+        this.className = "";
+        audio.pause();
+      } else {
+        this.className = "is-playing";
+        audio.play();
+      }
+    });
+  </script>
+  <script>
+    function Show() {
+      div = document.getElementById("look-up");
+      div.style.display = "block";
+    }
+  </script>
+  <script>
+      document.querySelector("#exp-cover").addEventListener("click", function() {
+        document.querySelector("#exp-sheet").style.display = "block";
+      });
+    </script>
+    <script>
+      document
+        .querySelector("#exp-sheet-close")
+        .addEventListener("click", function() {
+          document.querySelector("#exp-sheet").style.display = "none";
+        });
+    </script>
+  <script>
+    const shareButton = document.querySelector('.bi-three-dots-vertical');
+    
+shareButton.addEventListener('click', event => {
+  if (navigator.share) { 
+   navigator.share({
+      title: 'Moai - Experiences - ARBOOX',
+      url: 'https://share.arboox.com/experiences/moai'
+    }).then(() => {
+      console.log('');
+    })
+    .catch(console.error);
+    } else {
+        shareDialog.classList.add('is-open');
+    }
+});
+
+closeButton.addEventListener('click', event => {
+  shareDialog.classList.remove('is-open');
+});
+  </script>
+</html>
