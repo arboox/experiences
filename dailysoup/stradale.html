@@ -368,6 +368,18 @@
     }
   </script>
   <script>
+    document.getElementById("plyr").addEventListener("click", function() {
+      var audio = document.getElementById("sound");
+      if (this.className == "is-playing") {
+        this.className = "";
+        audio.pause();
+      } else {
+        this.className = "is-playing";
+        audio.play();
+      }
+    });
+  </script>
+  <script>
       document.querySelector("#exp-cover").addEventListener("click", function() {
         document.querySelector("#exp-sheet").style.display = "block";
       });
