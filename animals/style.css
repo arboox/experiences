@@ -35,6 +35,39 @@
 }
 
 @font-face {
+  font-family: "Nationale";
+  src: url("https://cdn.glitch.global/99f47cc5-a3af-41bd-9426-43d887207b59/Nationale-Medium.woff2?v=1648416316281")
+      format("woff2"),
+    url("https://cdn.glitch.global/99f47cc5-a3af-41bd-9426-43d887207b59/Nationale-Medium.woff?v=1648416316281")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nationale";
+  src: url("https://cdn.glitch.global/99f47cc5-a3af-41bd-9426-43d887207b59/Nationale-DemiBold.woff2?v=1648416316408")
+      format("woff2"),
+    url("https://cdn.glitch.global/99f47cc5-a3af-41bd-9426-43d887207b59/Nationale-DemiBold.woff?v=1648416316496")
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nationale";
+  src: url("https://cdn.glitch.global/99f47cc5-a3af-41bd-9426-43d887207b59/Nationale-Bold.woff2?v=1648416316562")
+      format("woff2"),
+    url("https://cdn.glitch.global/99f47cc5-a3af-41bd-9426-43d887207b59/Nationale-Bold.woff?v=1648416316751")
+      format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
       font-family: "Basier Circle";
       src: url("https://cdn.glitch.com/99f47cc5-a3af-41bd-9426-43d887207b59%2FBasierCircle-Regular.woff2?v=1628276477678")
           format("woff2"),
